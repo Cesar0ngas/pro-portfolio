@@ -11,7 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Send, Mail, Phone } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -63,16 +63,32 @@ const ContactSection = () => {
           <div className="space-y-6">
              <h3 className="text-2xl font-semibold">Contact Information</h3>
              <p className="text-muted-foreground">
-                Have a project in mind or just want to say hi? Fill out the form or contact me through the details below.
+                Have a project in mind or want to discuss data engineering opportunities? Feel free to reach out through the form or contact me directly.
              </p>
              <div className="space-y-4">
                 <div className="flex items-center gap-4">
                     <Mail className="w-5 h-5 text-primary" />
-                    <a href="mailto:contact@yourdomain.com" className="hover:text-primary">contact@yourdomain.com</a>
+                    <a href="mailto:cescor.0503@gmail.com" className="hover:text-primary">cescor.0503@gmail.com</a>
                 </div>
                 <div className="flex items-center gap-4">
                     <Phone className="w-5 h-5 text-primary" />
-                    <a href="tel:+1234567890" className="hover:text-primary">+1 (234) 567-890</a>
+                    <a href="tel:+525545793120" className="hover:text-primary">+52 55 45 79 31 20</a>
+                </div>
+                <div className="flex items-center gap-4">
+                    <MapPin className="w-5 h-5 text-primary" />
+                    <span>Naucalpan, Estado de México</span>
+                </div>
+                <div className="flex items-center gap-4">
+                    <Github className="w-5 h-5 text-primary" />
+                    <a href="https://github.com/Cesar0ngas" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+                      github.com/Cesar0ngas
+                    </a>
+                </div>
+                <div className="flex items-center gap-4">
+                    <Linkedin className="w-5 h-5 text-primary" />
+                    <a href="https://linkedin.com/in/cesarcorreacastro" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+                      LinkedIn Profile
+                    </a>
                 </div>
              </div>
           </div>

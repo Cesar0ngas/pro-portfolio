@@ -5,26 +5,26 @@ import { ChartTooltipContent, ChartContainer } from '@/components/ui/chart';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
 const skillsData = [
-  { name: 'JavaScript', proficiency: 95, fill: 'var(--color-javascript)' },
-  { name: 'TypeScript', proficiency: 90, fill: 'var(--color-typescript)' },
-  { name: 'React', proficiency: 95, fill: 'var(--color-react)' },
-  { name: 'Next.js', proficiency: 90, fill: 'var(--color-nextjs)' },
-  { name: 'Node.js', proficiency: 85, fill: 'var(--color-nodejs)' },
-  { name: 'Tailwind CSS', proficiency: 95, fill: 'var(--color-tailwind)' },
-  { name: 'SQL', proficiency: 80, fill: 'var(--color-sql)' },
+  { name: 'Python', proficiency: 95, fill: 'var(--color-python)' },
+  { name: 'AWS', proficiency: 90, fill: 'var(--color-aws)' },
+  { name: 'SQL', proficiency: 90, fill: 'var(--color-sql)' },
+  { name: 'FastAPI', proficiency: 88, fill: 'var(--color-fastapi)' },
+  { name: 'Docker', proficiency: 85, fill: 'var(--color-docker)' },
+  { name: 'MongoDB', proficiency: 85, fill: 'var(--color-mongodb)' },
+  { name: 'ETL/ELT', proficiency: 92, fill: 'var(--color-etl)' },
 ];
 
 const chartConfig = {
   proficiency: {
     label: 'Proficiency',
   },
-  javascript: { label: 'JavaScript', color: 'hsl(53 92% 58%)' },
-  typescript: { label: 'TypeScript', color: 'hsl(210 89% 64%)' },
-  react: { label: 'React', color: 'hsl(197 89% 64%)' },
-  nextjs: { label: 'Next.js', color: 'hsl(0 0% 9%)' },
-  nodejs: { label: 'Node.js', color: 'hsl(108 53% 58%)' },
-  tailwind: { label: 'Tailwind CSS', color: 'hsl(191 79% 52%)' },
-  sql: { label: 'SQL', color: 'hsl(30 89% 64%)' },
+  python: { label: 'Python', color: 'hsl(210 89% 64%)' },
+  aws: { label: 'AWS', color: 'hsl(29 92% 58%)' },
+  sql: { label: 'SQL', color: 'hsl(197 89% 64%)' },
+  fastapi: { label: 'FastAPI', color: 'hsl(157 69% 54%)' },
+  docker: { label: 'Docker', color: 'hsl(210 79% 52%)' },
+  mongodb: { label: 'MongoDB', color: 'hsl(108 53% 58%)' },
+  etl: { label: 'ETL/ELT', color: 'hsl(270 60% 60%)' },
 };
 
 const SkillsSection = () => {
@@ -35,7 +35,7 @@ const SkillsSection = () => {
         <Card className="shadow-lg">
           <CardHeader>
             <CardTitle>Technical Proficiency</CardTitle>
-            <CardDescription>A visual representation of my proficiency in key technologies.</CardDescription>
+            <CardDescription>Data Engineering & Cloud Infrastructure expertise</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="w-full h-[400px]">
@@ -50,7 +50,7 @@ const SkillsSection = () => {
                       tickLine={false}
                       axisLine={false}
                       tick={{ fill: 'hsl(var(--foreground))', fontSize: 14 }}
-                      width={100}
+                      width={120}
                     />
                     <Tooltip
                       cursor={{ fill: 'hsl(var(--muted))' }}
@@ -64,6 +64,29 @@ const SkillsSection = () => {
                   </BarChart>
                 </ResponsiveContainer>
               </ChartContainer>
+            </div>
+            
+            {/* Additional Skills Grid */}
+            <div className="mt-8 pt-8 border-t">
+              <h3 className="text-lg font-semibold mb-4">Additional Technologies</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div>
+                  <p className="font-medium text-primary mb-2">Languages</p>
+                  <p className="text-muted-foreground">R, Java, JavaScript</p>
+                </div>
+                <div>
+                  <p className="font-medium text-primary mb-2">Cloud Services</p>
+                  <p className="text-muted-foreground">S3, EC2, DynamoDB, ECS, CloudWatch</p>
+                </div>
+                <div>
+                  <p className="font-medium text-primary mb-2">Data Tools</p>
+                  <p className="text-muted-foreground">Pandas, Polars, NumPy, Dataiku</p>
+                </div>
+                <div>
+                  <p className="font-medium text-primary mb-2">Visualization</p>
+                  <p className="text-muted-foreground">PowerBI, Tableau, Matplotlib, Plotly</p>
+                </div>
+              </div>
             </div>
           </CardContent>
         </Card>

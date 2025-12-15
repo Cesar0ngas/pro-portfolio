@@ -29,10 +29,10 @@ const HeroSection = () => {
         className="relative z-10 px-4"
       >
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 font-headline drop-shadow-lg">
-          John Doe
+          César Correa
         </h1>
         <p className="text-lg md:text-2xl text-slate-200 max-w-2xl mx-auto mb-8 drop-shadow">
-          A creative Full-Stack Developer building modern, responsive, and user-friendly web experiences.
+          Data Engineer | Cloud & API Development | Building scalable data pipelines and real-time solutions with Python & AWS
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
