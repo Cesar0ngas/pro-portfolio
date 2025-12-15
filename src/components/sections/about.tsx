@@ -6,13 +6,25 @@ const experience = [
     role: 'IT Consultant',
     company: 'Basteris Reyes & Asociados',
     period: 'January 2025 - Present',
-    description: 'Built high-throughput invoice processing system handling 8M+ XML invoices using FastAPI, MongoDB, and AWS ECS. Accelerated project delivery by 85% through optimized data pipelines, enabling real-time financial metadata querying for tax compliance automation.',
+    description: 'Built high-throughput invoice processing system handling 8M+ XML invoices using FastAPI, MongoDB, and AWS ECS. Developed related-party identification platform with NestJS, React, and AWS. Accelerated project delivery by 85% through optimized data pipelines.',
   },
   {
     role: 'Data Engineer',
     company: 'Plenumsoft',
     period: 'May 2024 - August 2024',
-    description: 'Engineered web scraping pipelines to extract structured data from public websites, reducing manual data collection through Python automation. Implemented ETL workflows in Dataiku with automated data ingestion, transformation, and quality checks.',
+    description: 'Engineered web scraping pipelines to extract structured data from public websites. Implemented ETL workflows in Dataiku with automated data ingestion, transformation, and quality checks. Collaborated with multidisciplinary teams to optimize operational efficiency.',
+  },
+  {
+    role: 'Data Engineer (Internship)',
+    company: 'Centro de Investigaciones Científicas de Yucatán (CICY)',
+    period: 'January 2024 - May 2024',
+    description: 'Implemented biomass analysis methods with satellite data and machine learning algorithms. Built Python scripts to automate data cleaning and reduce processing time for scientific research.',
+  },
+  {
+    role: 'Data Analyst (Internship)',
+    company: 'Arithmos Data Science',
+    period: 'January 2023 - April 2023',
+    description: 'Conducted correlation analysis between votes cast and socio-economic factors in Oaxaca using Python. Presented key findings to executive panel, highlighting data-driven implications for decision-making.',
   },
 ];
 
@@ -20,7 +32,12 @@ const education = [
   {
     degree: 'Data Engineering',
     institution: 'Universidad Politécnica de Yucatán',
-    period: 'Graduated: July 2025',
+    period: '2021 - 2025',
+  },
+  {
+    degree: 'Accounting Technician',
+    institution: 'CECyT 12 José María Morelos',
+    period: '2018 - 2021',
   },
 ];
 
@@ -44,11 +61,11 @@ const AboutSection = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-headline">About Me</h2>
         <div className="max-w-3xl mx-auto text-center text-lg text-foreground/80 mb-16">
           <p>
-            I&apos;m a Data Engineer with 1.5+ years of experience building scalable data pipelines, APIs, 
-            and cloud-based solutions that drive business impact. Specialized in Python, AWS infrastructure, 
-            and real-time processing. I reduced project delivery time by 85% (from 2 months to 2 weeks) through 
-            optimized ETL workflows. Passionate about leveraging data to solve complex problems and building 
-            enterprise-scale data platforms.
+            I&apos;m a Data Engineer focused on automating workflows with Python and cloud technologies. 
+            I build end-to-end data apps and pipelines using modern tools like NestJS, React, AWS, MongoDB, 
+            and Dataiku to deliver reliable solutions that reduce manual work and speed up decision-making. 
+            With experience across consulting, research, and analytics, I&apos;m passionate about leveraging 
+            data to solve complex problems.
           </p>
         </div>
 

@@ -5,13 +5,13 @@ import { ChartTooltipContent, ChartContainer } from '@/components/ui/chart';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
 const skillsData = [
-  { name: 'Python', proficiency: 95, fill: 'var(--color-python)' },
-  { name: 'AWS', proficiency: 90, fill: 'var(--color-aws)' },
-  { name: 'SQL', proficiency: 90, fill: 'var(--color-sql)' },
-  { name: 'FastAPI', proficiency: 88, fill: 'var(--color-fastapi)' },
-  { name: 'Docker', proficiency: 85, fill: 'var(--color-docker)' },
-  { name: 'MongoDB', proficiency: 85, fill: 'var(--color-mongodb)' },
-  { name: 'ETL/ELT', proficiency: 92, fill: 'var(--color-etl)' },
+  { name: 'Python', proficiency: 70, fill: 'var(--color-python)' },
+  { name: 'AWS', proficiency: 70, fill: 'var(--color-aws)' },
+  { name: 'SQL', proficiency: 75, fill: 'var(--color-sql)' },
+  { name: 'FastAPI', proficiency: 70, fill: 'var(--color-fastapi)' },
+  { name: 'Docker', proficiency: 80, fill: 'var(--color-docker)' },
+  { name: 'MongoDB', proficiency: 80, fill: 'var(--color-mongodb)' },
+  { name: 'ETL/ELT', proficiency: 80, fill: 'var(--color-etl)' },
 ];
 
 const chartConfig = {
