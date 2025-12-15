@@ -1,21 +1,46 @@
-import { ai } from '../genkit';
-import { flow } from 'genkit/flow';
-import { z } from 'zod';
+'use server';
 
-export const reviewPortfolio = flow(
+import {ai} from '@/ai/genkit';
+import {z} from 'zod';
+
+const PortfolioReviewOutputSchema = z.object({
+  strengths: z.array(z.string()).describe("The portfolio's key strengths."),
+  areasForImprovement: z.array(z.string()).describe('Areas where the portfolio can be improved.'),
+  suggestions: z.array(z.string()).describe('Specific, actionable suggestions for improvement.'),
+});
+
+export type PortfolioReviewOutput = z.infer<typeof PortfolioReviewOutputSchema>;
+
+const portfolioReviewPrompt = ai.definePrompt({
+  name: 'portfolioReviewPrompt',
+  input: {
+    schema: z.string(),
+  },
+  output: {
+    schema: PortfolioReviewOutputSchema,
+  },
+  prompt: `You are an expert career coach and portfolio reviewer.
+    Review the following portfolio content and provide feedback.
+    Analyze the content and identify its strengths, areas for improvement, and provide concrete suggestions for enhancement.
+    The tone should be professional, encouraging, and constructive.
+
+    Portfolio Content:
+    ---
+    {{{input}}}
+    ---
+    `,
+});
+
+const reviewPortfolioFlow = ai.defineFlow(
   {
     name: 'reviewPortfolio',
     inputSchema: z.string(),
-    outputSchema: z.object({
-      strengths: z.array(z.string()),
-      areasForImprovement: z.array(z.string()),
-      suggestions: z.array(z.string()),
-    }),
+    outputSchema: PortfolioReviewOutputSchema,
   },
-  async (portfolioContent) => {
+  async (portfolioContent: string) => {
     if (process.env.NODE_ENV === 'development') {
       // In dev, return mock data to avoid calling the AI API.
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       return {
         strengths: [
           'Clear and concise project descriptions.',
@@ -34,31 +59,12 @@ export const reviewPortfolio = flow(
         ],
       };
     }
-
-    const prompt = `Review the following portfolio content and provide feedback.
-    Analyze the content and identify its strengths, areas for improvement, and provide concrete suggestions for enhancement.
-    The tone should be professional, encouraging, and constructive.
-    Format the output as a JSON object with three keys: "strengths", "areasForImprovement", and "suggestions".
-    Each key should have a value of an array of strings.
-
-    Portfolio Content:
-    ---
-    ${portfolioContent}
-    ---
-    `;
-
-    const result = await ai.generate({
-      prompt,
-      output: {
-        format: 'json',
-        schema: z.object({
-            strengths: z.array(z.string()),
-            areasForImprovement: z.array(z.string()),
-            suggestions: z.array(z.string()),
-        })
-      },
-    });
     
-    return result.output() || { strengths: [], areasForImprovement: [], suggestions: [] };
+    const {output} = await portfolioReviewPrompt(portfolioContent);
+    return output!;
   }
 );
+
+export async function reviewPortfolio(portfolioContent: string): Promise<PortfolioReviewOutput> {
+  return reviewPortfolioFlow(portfolioContent);
+}

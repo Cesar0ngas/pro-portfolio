@@ -1,7 +1,7 @@
 'use client';
 
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
-import { ChartTooltipContent } from '@/components/ui/chart';
+import { ChartTooltipContent, ChartContainer } from '@/components/ui/chart';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
 const skillsData = [
@@ -39,29 +39,31 @@ const SkillsSection = () => {
           </CardHeader>
           <CardContent>
             <div className="w-full h-[400px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={skillsData} layout="vertical" margin={{ left: 10 }}>
-                  <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-                  <XAxis type="number" hide />
-                  <YAxis
-                    dataKey="name"
-                    type="category"
-                    tickLine={false}
-                    axisLine={false}
-                    tick={{ fill: 'hsl(var(--foreground))', fontSize: 14 }}
-                    width={100}
-                  />
-                  <Tooltip
-                    cursor={{ fill: 'hsl(var(--muted))' }}
-                    content={<ChartTooltipContent indicator="dot" />}
-                  />
-                  <Bar dataKey="proficiency" radius={[4, 4, 4, 4]} background={{ fill: 'hsl(var(--muted))', radius: 4 }}>
-                    {skillsData.map((entry, index) => (
-                      <Bar key={`cell-${index}`} fill={entry.fill} />
-                    ))}
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
+              <ChartContainer config={chartConfig} className="w-full h-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={skillsData} layout="vertical" margin={{ left: 10 }}>
+                    <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+                    <XAxis type="number" hide />
+                    <YAxis
+                      dataKey="name"
+                      type="category"
+                      tickLine={false}
+                      axisLine={false}
+                      tick={{ fill: 'hsl(var(--foreground))', fontSize: 14 }}
+                      width={100}
+                    />
+                    <Tooltip
+                      cursor={{ fill: 'hsl(var(--muted))' }}
+                      content={<ChartTooltipContent indicator="dot" />}
+                    />
+                    <Bar dataKey="proficiency" radius={[4, 4, 4, 4]} background={{ fill: 'hsl(var(--muted))', radius: 4 }}>
+                      {skillsData.map((entry, index) => (
+                        <Bar key={`cell-${index}`} fill={entry.fill} />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </ChartContainer>
             </div>
           </CardContent>
         </Card>
