@@ -24,6 +24,7 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 const initialState = {
   message: '',
   success: false,
+  errors: undefined,
 };
 
 const ContactSection = () => {
@@ -76,7 +77,7 @@ const ContactSection = () => {
                 </div>
                 <div className="flex items-center gap-4">
                     <MapPin className="w-5 h-5 text-primary" />
-                    <span>Naucalpan, Estado de México</span>
+                    <span>Edo. Méx | CDMX | Mérida</span>
                 </div>
                 <div className="flex items-center gap-4">
                     <Github className="w-5 h-5 text-primary" />

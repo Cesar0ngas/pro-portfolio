@@ -1,6 +1,6 @@
 'use client';
 
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis, ResponsiveContainer, Tooltip, Cell } from 'recharts';
 import { ChartTooltipContent, ChartContainer } from '@/components/ui/chart';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
@@ -56,9 +56,13 @@ const SkillsSection = () => {
                       cursor={{ fill: 'hsl(var(--muted))' }}
                       content={<ChartTooltipContent indicator="dot" />}
                     />
-                    <Bar dataKey="proficiency" radius={[4, 4, 4, 4]} background={{ fill: 'hsl(var(--muted))', radius: 4 }}>
+                    <Bar 
+                      dataKey="proficiency" 
+                      radius={[4, 4, 4, 4]} 
+                      background={{ fill: 'hsl(var(--muted))', radius: 4 }}
+                    >
                       {skillsData.map((entry, index) => (
-                        <Bar key={`cell-${index}`} fill={entry.fill} />
+                        <Cell key={`cell-${index}`} fill={entry.fill} />
                       ))}
                     </Bar>
                   </BarChart>
